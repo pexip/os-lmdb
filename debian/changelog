@@ -1,3 +1,15 @@
+lmdb (0.9.24-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/copyright: Use https protocol in Format field
+
+  [ Ondřej Surý ]
+  * Bump the dh compat to 10
+  * Update Makefile patch to fix the parallel build
+  * New upstream version 0.9.24
+
+ -- Ondřej Surý <ondrej@debian.org>  Wed, 25 Mar 2020 15:24:22 +0100
+
 lmdb (0.9.22-1) unstable; urgency=medium
 
   * New upstream version 0.9.22 (Closes: #855688)
