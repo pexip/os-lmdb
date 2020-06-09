@@ -1,3 +1,9 @@
+lmdb (0.9.22-1pexip1) pexip; urgency=medium
+
+  * Prepare Pexip packaging
+
+ -- Vincent Sanders <vince@pexip.com>  Tue, 09 Jun 2020 08:58:23 +0100
+
 lmdb (0.9.22-1) unstable; urgency=medium
 
   * New upstream version 0.9.22 (Closes: #855688)
