@@ -3,11 +3,11 @@ Date: Tue, 22 Dec 2015 09:36:38 +0100
 Subject: Debian quirks to make shared library versioned
 
 ---
- libraries/liblmdb/Makefile | 21 ++++++++++++---------
- 1 file changed, 12 insertions(+), 9 deletions(-)
+ libraries/liblmdb/Makefile | 28 +++++++++++++++++-----------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
 
 diff --git a/libraries/liblmdb/Makefile b/libraries/liblmdb/Makefile
-index f254511..ddb6d91 100644
+index f254511..8f21cc1 100644
 --- a/libraries/liblmdb/Makefile
 +++ b/libraries/liblmdb/Makefile
 @@ -27,10 +27,11 @@ CFLAGS	= $(THREADS) $(OPT) $(W) $(XCFLAGS)
@@ -52,14 +52,21 @@ index f254511..ddb6d91 100644
  
  test:	all
  	rm -rf testdb && mkdir testdb
-@@ -66,7 +67,9 @@ liblmdb.a:	mdb.o midl.o
+@@ -64,9 +65,14 @@ test:	all
+ liblmdb.a:	mdb.o midl.o
+ 	$(AR) rs $@ mdb.o midl.o
  
- liblmdb$(SOEXT):	mdb.lo midl.lo
- #	$(CC) $(LDFLAGS) -pthread -shared -Wl,-Bsymbolic -o $@ mdb.o midl.o $(SOLIBS)
+-liblmdb$(SOEXT):	mdb.lo midl.lo
+-#	$(CC) $(LDFLAGS) -pthread -shared -Wl,-Bsymbolic -o $@ mdb.o midl.o $(SOLIBS)
 -	$(CC) $(LDFLAGS) -pthread -shared -o $@ mdb.lo midl.lo $(SOLIBS)
-+	$(CC) $(LDFLAGS) -fPIC -Wl,-soname,liblmdb$(SOEXT).$(SOVER) -pthread -Wl,-Bsymbolic -shared -o $@.$(SOVER).0.0 mdb.lo midl.lo $(SOLIBS)
-+	ln -s $@.$(SOVER).0.0 liblmdb$(SOEXT).$(SOVER)
-+	ln -s liblmdb$(SOEXT).$(SOVER) liblmdb$(SOEXT)
++liblmdb$(SOEXT).$(SOVER).0.0:	mdb.lo midl.lo
++	$(CC) $(LDFLAGS) -fPIC -Wl,-soname,liblmdb$(SOEXT).$(SOVER) -pthread -Wl,-Bsymbolic -shared -o $@ mdb.lo midl.lo $(SOLIBS)
++
++liblmdb$(SOEXT).$(SOVER):	liblmdb$(SOEXT).$(SOVER).0.0
++	ln -sf liblmdb$(SOEXT).$(SOVER).0.0 liblmdb$(SOEXT).$(SOVER)
++
++liblmdb$(SOEXT):	liblmdb$(SOEXT).$(SOVER)
++	ln -sf liblmdb$(SOEXT).$(SOVER) liblmdb$(SOEXT)
  
  mdb_stat: mdb_stat.o liblmdb.a
  mdb_copy: mdb_copy.o liblmdb.a
