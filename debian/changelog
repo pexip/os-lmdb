@@ -1,3 +1,9 @@
+lmdb (0.9.24-1pexip2) pexip; urgency=medium
+
+  * No-change rebuild to move source package to main
+
+ -- Steve McIntyre <steve.mcintyre@pexip.com>  Mon, 10 Jul 2023 15:51:28 +0100
+
 lmdb (0.9.24-1pexip1) pexip; urgency=medium
 
   * Initial bullseye build
