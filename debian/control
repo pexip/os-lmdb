@@ -2,11 +2,11 @@ Source: lmdb
 Section: database
 Priority: optional
 Maintainer: LMDB <lmdb@packages.debian.org>
-Uploaders: Ondřej Surý <ondrej@debian.org>
-Build-Depends: debhelper (>= 10),
-               doxygen
-Standards-Version: 4.1.5.0
-Homepage: http://symas.com/mdb/
+Uploaders: Ondřej Surý <ondrej@debian.org>,
+           Jakub Ružička <jru@debian.org>
+Build-Depends: debhelper-compat (= 13), doxygen
+Standards-Version: 4.6.2.0
+Homepage: https://symas.com/mdb/
 Vcs-Browser: https://salsa.debian.org/debian/lmdb
 Vcs-Git: https://salsa.debian.org/debian/lmdb.git
 
@@ -68,6 +68,7 @@ Section: doc
 Depends: ${misc:Depends}
 Breaks: liblmdb-dev (<< 0.9.9-1)
 Replaces: liblmdb-dev (<< 0.9.9-1)
+Multi-Arch: foreign
 Description: Lightning Memory-Mapped Database doxygen documentation
  This package contains the doxygen generated documentation and the man
  pages for the LMDB library.

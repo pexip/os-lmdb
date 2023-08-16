@@ -1,3 +1,32 @@
+lmdb (0.9.31-1) unstable; urgency=medium
+
+  * New upstream version 0.9.31 (Closes: #952904)
+
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+  * Bump debhelper from old 10 to 12.
+  * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Repository, Repository-Browse.
+  * Drop transition for old debug package migration.
+
+  [ Matthias Klumpp ]
+  * Update d/watch file with new source location
+
+  [ Jenkins ]
+  * Apply multi-arch hints. + lmdb-doc: Add Multi-Arch: foreign.
+
+  [ Daniel Salzman ]
+  * Update d/watch: fix detection
+
+  [ Jakub Ružička ]
+  * Add d/gbp.conf: use pristine-tar
+  * Update Standards-Version to latest 4.6.2.0
+  * Bump debhelper-compat to 13
+  * Add myself to Uploaders
+  * Enable Salsa CI
+
+ -- Jakub Ružička <jru@debian.org>  Wed, 16 Aug 2023 13:53:43 +0200
+
 lmdb (0.9.24-1) unstable; urgency=medium
 
   [ Ondřej Nový ]
