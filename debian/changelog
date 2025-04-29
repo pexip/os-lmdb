@@ -1,3 +1,9 @@
+lmdb (0.9.31-1+pexip25u1) pexip-trixie; urgency=medium
+
+  * Initial trixie build
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Tue, 29 Apr 2025 22:42:09 +0100
+
 lmdb (0.9.31-1) unstable; urgency=medium
 
   * New upstream version 0.9.31 (Closes: #952904)
